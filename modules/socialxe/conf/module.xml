@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<module>
+    <actions>
+		<action name="dispSocialxeSnsManage" type="view" standalone="true" />
+		<action name="dispSocialxeConfirmMail" type="view" standalone="true" />
+		<action name="dispSocialxeInputAddInfo" type="view" standalone="true" />
+		<action name="dispSocialxeConnectSns" type="view" standalone="true" />
+		<action name="dispSocialxeSnsProfile" type="view" standalone="true" />
+		
+		<action name="procSocialxeConfirmMail" type="controller" ruleset="confirmEmailAddress" standalone="true" />
+		<action name="procSocialxeInputAddInfo" type="controller" ruleset="@insertAddInfoSocialxe" standalone="true" />
+        <action name="procSocialxeSnsClear" type="controller" standalone="true" />
+		<action name="procSocialxeSnsLinkage" type="controller" standalone="true" />
+        <action name="procSocialxeCallback" type="controller" standalone="false" method="GET|POST" />
+		
+        <action name="dispSocialxeAdminSettingApi" type="view" menu_name="socialxe" />
+        <action name="dispSocialxeAdminSetting" type="view" menu_name="socialxe" />
+        <action name="dispSocialxeAdminLogRecord" type="view" menu_name="socialxe" />
+        <action name="dispSocialxeAdminSnsList" type="view" admin_index="true" menu_name="socialxe" menu_index="true" />
+		
+        <action name="procSocialxeAdminSettingApi" type="controller" />
+        <action name="procSocialxeAdminSetting" type="controller" />
+        <action name="procSocialxeAdminDeleteLogRecord" type="controller" />
+    </actions>
+	<menus>
+		<menu name="socialxe">
+			<title xml:lang="ko">소셜XE</title>
+		</menu>
+	</menus>
+</module>
