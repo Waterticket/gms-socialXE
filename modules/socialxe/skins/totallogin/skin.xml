@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<skin version="2.2">
+    <title xml:lang="ko">소셜XE 2015 통합 로그인 V2.2</title>
+	<description xml:lang="ko">소셜 로그인과 일반 로그인을 통시에 사용하는 경우 유용한 스킨입니다.</description>
+    <version>2.2</version>
+    <date>2016-11-12</date>
+	
+    <author email_address="clamp2x@gmail.com" link="http://www.studyforus.com">
+        <name xml:lang="ko">CLAMP2X</name>
+    </author>
+</skin>

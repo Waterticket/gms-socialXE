@@ -1,0 +1,59 @@
+<include target="./common_header.html" />
+<load target="../../../member/tpl/js/signup_check.js" />
+<!--%load_js_plugin("ui")-->
+<!--%load_js_plugin("ui.datepicker")-->
+
+<div class="signin" style="max-width:700px;width:100%;">
+	<div class="login-header">
+		<h1>{$lang->sns_input_add_info}</h1>
+	</div>
+<div class="message">
+	<p>{$lang->msg_sns_input_add_info}</p>
+</div>
+
+<div cond="$XE_VALIDATOR_MESSAGE && $XE_VALIDATOR_ID == 'modules/socialxe/input_add_info/1'" class="message {$XE_VALIDATOR_MESSAGE_TYPE}">
+	<p>{$XE_VALIDATOR_MESSAGE}</p>
+</div>
+<form ruleset="@insertAddInfoSocialxe" action="./" method="post" enctype="multipart/form-data" class="form-horizontal" id="fo_insert_member">
+	<input type="hidden" name="module" value="socialxe" />
+	<input type="hidden" name="act" value="procSocialxeInputAddInfo" />
+	<input type="hidden" name="xe_validator_id" value="modules/socialxe/input_add_info/1" />
+	<div class="agreement" cond="in_array('agreement',$config->sns_input_add_info)">
+		<div class="text">
+			{$member_config->agreement}
+		</div>
+		<div class="confirm">
+			<label for="accept_agree">
+				<input type="checkbox" name="accept_agreement" value="Y" id="accept_agree" />
+				{$lang->about_accept_agreement}
+			</label>
+		</div>
+	</div>
+	<div class="control-group" cond="in_array('user_id',$config->sns_input_add_info)">
+		<label for="user_id" class="control-label"><em style="color:red">*</em> {$lang->user_id}</label>
+		<div class="controls_add">
+			<input type="text" name="user_id" id="user_id" value="" required />
+		</div>
+	</div>
+	<div class="control-group">
+		<label for="nick_name" class="control-label"><em style="color:red">*</em> {$lang->nick_name}</label>
+		<div class="controls_add" cond="!in_array('nick_name',$config->sns_input_add_info)">
+			{$nick_name}
+		</div>
+		<div class="controls_add" cond="in_array('nick_name',$config->sns_input_add_info)">
+			<input type="text" name="nick_name" id="nick_name" value="{$nick_name}" required />
+		</div>
+	</div>
+	<div class="control-group" loop="$formTags=>$formTag" cond="$formTag->name != 'signature' && in_array('require_add_info',$config->sns_input_add_info)">
+		<label for="{$formTag->name}" class="control-label">{$formTag->title}</label>
+		<div class="controls_add">{$formTag->inputTag}</div>
+	</div>
+	
+	<div class="login-footer_add">
+		<div class="btnArea_add">
+			<input type="submit" value="{$lang->cmd_submit}" class="member_btn btn-inverse" />
+		</div>
+	</div>
+</form>
+</div>
+<include target="./common_footer.html" />

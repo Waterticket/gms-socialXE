@@ -1,0 +1,17 @@
+<div class="x_page-header">
+	<h1>{$lang->socialxe} <a href="#aboutModule" data-toggle class="x_icon-question-sign">{$lang->help}</a>
+	</h1>
+</div>
+<p class="x_alert x_alert-info" id="aboutModule" hidden>{$lang->about_socialxe}</p>
+
+<ul class="x_nav x_nav-tabs" cond="$module=='admin' && $module_info">
+	<li class="x_active"|cond="$act=='dispSocialxeAdminSettingApi'"><a href="{getUrl('','module','admin','act','dispSocialxeAdminSettingApi')}">{$lang->api_setting}</a></li>
+	<li class="x_active"|cond="$act=='dispSocialxeAdminSetting'"><a href="{getUrl('','module','admin','act','dispSocialxeAdminSetting')}">{$lang->cmd_environment_setting}</a></li>
+	<li class="x_active"|cond="$act=='dispSocialxeAdminLogRecord'"><a href="{getUrl('','module','admin','act','dispSocialxeAdminLogRecord')}">{$lang->cmd_log_record}</a></li>
+	<li class="x_active"|cond="$act=='dispSocialxeAdminSnsList'"><a href="{getUrl('','module','admin','act','dispSocialxeAdminSnsList')}">{$lang->sns_list}</a></li>
+</ul>	
+<div class="message error" cond="!$module_info"><p>{$lang->msg_not_install_module}</p></div>
+
+<div cond="$XE_VALIDATOR_MESSAGE && $XE_VALIDATOR_ID == 'modules/socialxe/tpl/1'" class="message {$XE_VALIDATOR_MESSAGE_TYPE}">
+	<p>{$XE_VALIDATOR_MESSAGE}</p>
+</div>
